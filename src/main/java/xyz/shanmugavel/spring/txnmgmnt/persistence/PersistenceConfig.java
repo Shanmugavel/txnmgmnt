@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *
  */
 @Configuration
-@EntityScan(basePackages = {"xyz.shanmugavel.spring.txnmgmnt.persistence.model"})
+@EntityScan(basePackages = {"xyz.shanmugavel.spring.txnmgmnt.persistence.model", "xyz.shanmugavel.spring.txnmgmnt.persistence.converter"})
 @EnableJpaRepositories( basePackages = { "xyz.shanmugavel.spring.txnmgmnt.persistence" })
 @EnableTransactionManagement
 public class PersistenceConfig {

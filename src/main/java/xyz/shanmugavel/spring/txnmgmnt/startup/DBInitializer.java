@@ -3,7 +3,7 @@
  */
 package xyz.shanmugavel.spring.txnmgmnt.startup;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -45,16 +45,16 @@ public class DBInitializer implements ApplicationListener<ContextRefreshedEvent>
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		//Initialize Users
 		User bob = new User("Bob", "Thompson" , UserStatus.ACTIVE.getValue());
-		bob.setCreateDate(LocalDate.now());
+		bob.setCreateDate(LocalDateTime.now());
 		User john = new User("John", "Doe" , UserStatus.ACTIVE.getValue());
-		john.setCreateDate(LocalDate.now());
+		john.setCreateDate(LocalDateTime.now());
 		userSvc.add(bob);
 		userSvc.add(john);
 		log.info("Loaded Users!!");
 		
 		//Initialize Products
 		Product product  = new Product("XYZ", "Description......", ProductStatus.ACTIVE.getValue());
-		product.setCreateDate(LocalDate.now());
+		product.setCreateDate(LocalDateTime.now());
 		productSvc.add(product);
 		log.info("Loaded Products!!");
 		
@@ -63,7 +63,7 @@ public class DBInitializer implements ApplicationListener<ContextRefreshedEvent>
 		invt.setAvailableCnt(1000L);
 		invt.setProduct(product);
 		invt.setStatus(InventoryStatus.ACTIVE.getValue());
-		invt.setCreateDate(LocalDate.now());
+		invt.setCreateDate(LocalDateTime.now());
 		inventorySvc.add(invt);
 		log.info("Loaded Inventory!!");
 		
@@ -72,7 +72,7 @@ public class DBInitializer implements ApplicationListener<ContextRefreshedEvent>
 		order.setProduct(product);
 		order.setCount(1L);
 		order.setStatus(OrderStatus.COMPLETE.getValue());
-		order.setCreateDate(LocalDate.now());
+		order.setCreateDate(LocalDateTime.now());
 		orderSvc.create(order);
 		log.info("Placed Order!!");
 	}

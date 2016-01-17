@@ -4,7 +4,7 @@
 package xyz.shanmugavel.spring.txnmgmnt.persistence.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -19,20 +19,20 @@ public class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name="CREATE_DATE", nullable=false)
-	LocalDate createDate;
+	LocalDateTime createDate;
 	@Column(name="UDATE_DATE", nullable=true)
-	LocalDate updateDate;
+	LocalDateTime updateDate;
 	
-	public LocalDate getCreateDate() {
+	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(LocalDate createDate) {
+	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
-	public LocalDate getUpdateDate() {
+	public LocalDateTime getUpdateDate() {
 		return updateDate;
 	}
-	public void setUpdateDate(LocalDate updateDate) {
+	public void setUpdateDate(LocalDateTime updateDate) {
 		this.updateDate = updateDate;
 	}
 }
